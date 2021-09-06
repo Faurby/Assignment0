@@ -11,9 +11,6 @@ namespace Assignment0.Tests
         public void isLeapYear_2020_is_LeapYear()
         {
             //Arrange
-            var writer = new StringWriter();
-            Console.SetOut(writer);
-
             var input = 2020;
 
             //Act
@@ -140,6 +137,42 @@ namespace Assignment0.Tests
             //Assert
             var output = writer.GetStringBuilder().ToString().Trim();
             Assert.Equal("yay", output);
+        }
+
+                [Fact]  
+        public void Main_1581_is_LeapYear()
+        {
+            //Arrange
+            var writer = new StringWriter();
+            Console.SetOut(writer);
+
+            var input = new StringReader("1581");
+            Console.SetIn(input);
+
+            //Act
+            Program.Main(new string[0]);
+
+            //Assert
+            var output = writer.GetStringBuilder().ToString().Trim();
+            Assert.Equal("Must be above 1581", output);
+        }
+
+        [Fact]  
+        public void Main_hello_is_LeapYear()
+        {
+            //Arrange
+            var writer = new StringWriter(); //opretter en writer
+            Console.SetOut(writer);  //sender console out til writeren
+
+            var input = new StringReader("hello"); //laver input med stringreader
+            Console.SetIn(input); //bruger stringreader som input
+
+            //Act
+            Program.Main(new string[0]); //starter programmet
+
+            //Assert
+            var output = writer.GetStringBuilder().ToString().Trim(); //får fat i consolens outputt og trimmer det
+            Assert.Equal("Please write a number", output); //asserter forventet vs. egentlige resultat
         }
     }
 }
