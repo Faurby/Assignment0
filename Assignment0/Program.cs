@@ -1,12 +1,53 @@
-﻿using System;
+using System;
 
 namespace Assignment0
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello Thor og Flyv!");
+            try
+            {
+                var input = Int32.Parse(Console.ReadLine());
+                if (input > 1581)
+                {
+                    if (isLeapYear(input))
+                    {
+                        Console.WriteLine("yay");
+                    }
+                    else
+                    {
+                        Console.WriteLine("nay");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Must be above 1581");
+                }
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Please write a number");
+            }
+
+        }
+
+        public static bool isLeapYear(int year)
+        {
+            if (year % 4 == 0)
+            {
+                if (year % 100 == 0)
+                {
+                    if (year % 400 == 0)
+                    {
+                        return true;
+
+                    }
+                    return false;
+                }
+                return true;
+            }
+            return false;
         }
     }
 }
