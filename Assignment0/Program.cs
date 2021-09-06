@@ -6,7 +6,7 @@ namespace Assignment0
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello Thor og Flyv!");
         }
     }
 }
